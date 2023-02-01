@@ -32,5 +32,8 @@ const mcd = function (...[m, n]) {
 	return loop(m, n);
 }
 
+const main = function() {
 for (let test of tests)
 	console.log(`inputs: ${test[0]} ${test[1]} output: ${mcd(...test)}`);
+}
+main();
