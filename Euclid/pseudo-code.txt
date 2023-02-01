@@ -1,0 +1,13 @@
+
+0. Ensure m > n
+1. Divide m and n to find the reminder r
+2. if r == 0, teminate with n
+3. else replace: m = n; n = r, and repeat from step 1.
+
+544, 119
+
+1)finitenes
+2)Definiteness
+3)input
+4)output
+5)Efectiveness
