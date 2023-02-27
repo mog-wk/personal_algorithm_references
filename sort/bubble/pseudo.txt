@@ -1,0 +1,11 @@
+interates and compares the immediate elt from an arr
+
+for i in arr
+if i < i+1 change i and i+1
+
+big O
+best: n
+avg: n**2
+worst: n**2
+mem: 1
+stable: yes

@@ -1,0 +1,12 @@
+sort by interating over a arr and a sub arr of ramaing unserted elements
+
+for i = 0 in arr.length:
+	for j = i in arr.length:
+		comparre arr[i] and arr[j] and swap
+
+== big O ==
+best: n**2
+avg: n**2
+worst: n**2
+mem: 1
+stable: no

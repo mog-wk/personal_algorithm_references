@@ -1,0 +1,15 @@
+seperates arr into sorted and unsorted section and retroativaly inserts unsorted elements into sorted section
+
+n = arr.length
+for i = 1; i< n.length
+j = i
+while j > 0 and arr[j-1] > arr[j]
+	swap j, j-1
+ 	j--;
+
+big O
+best: n
+avg: n**2
+worst: n**2
+mem: 1
+stable yes
