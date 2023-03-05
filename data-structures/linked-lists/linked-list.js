@@ -42,19 +42,23 @@ class linkedList {
 			console.log(`data: ${cur.data}, left: ${(cur.left == null) ? null : cur.left.data}, right: ${(cur.right == null) ? null : cur.right.data}`)
 			cur = cur.right;
 		}
-		console.log(`head: ${this.head.data}, tail: ${this.tail.data}`);
 		console.log("===================================");
+		console.log(`head: ${this.head.data}, tail: ${this.tail.data}, length: ${this.length}\n`);
 	}
 }
 
 class singleLinkedList extends linkedList {
 	constructor(...elts) {
 		super(...elts)
-		this.length++;
-		for (let i = 0; i < elts.length - 1; i++) {
-			elts[i].right = elts[i + 1];
-			this.length++;
+		this.length = elts.length;
+		let cur = new element(elts[0])
+		this.head = cur;
+		for (let i = 1; i < elts.length; i++) {
+			let elt = new element(elts[i]);
+			cur.right = elt;
+			cur = elt;
 		}	
+		this.tail = cur;
 	}
 
 	has(elt) {
@@ -119,19 +123,22 @@ class singleLinkedList extends linkedList {
 		this.length--;
 
 		return 0;
-
 	}
 }
 
 class doubleLinkedList extends linkedList {
 	constructor(...elts) {
 		super(...elts)
-		this.length++;
-		for (let i = 0; i < elts.length; i++) {
-			if (i <= elts.length - 2) elts[i].right = elts[i + 1];
-			if (i >= 1) elts[i].left = elts[i - 1];
-			this.length++;
+		this.length = elts.length;
+		let cur = new element(elts[0]);
+		this.head = cur;
+		for (let i = 1; i < elts.length; i++) {
+			let elt = new element(elts[i])
+			cur.right = (i <= elts.length - 1) ? elt : null;
+			elt.left = (i >= 1) ? cur : null;
+			cur = elt;
 		}	
+		this.tail = cur
 	}
 
 	print(dir="l") {
@@ -171,8 +178,7 @@ class doubleLinkedList extends linkedList {
 		this.length++;
 	}
 
-	insertBefore(e, n) {
-		let cur = this.find(n)
+	insertBefore(e, cur) {
 		if (cur === -1) {
 			console.log("err");
 			return -1;
@@ -213,17 +219,76 @@ class doubleLinkedList extends linkedList {
 		cur.left = link
 		this.length--;
 	}
+
+	remove(e) {
+		// remove first instance of elements with data == e
+		let cur = this.find(e);
+		if (cur === -1) return -1
+		if (cur.left != null) cur.left.right = cur.right
+		else this.head = cur.right;
+		if (cur.right != null) cur.right.left = cur.left
+		else this.tail = cur.left;
+		this.length--;
+	}
 }
+
+class cycleLinkedList {
+	constructor(...elts) {
+		this.length = elts.length;
+
+		let cur = new element(elts[0]);
+		this.head = cur
+		for (let i = 1; i < elts.length; i++) {
+			let elt = new element(elts[i])
+
+			cur.right = (i <= elts.length - 1) ? elt : this.head
+			elt.left = (i >= 1) ? cur : null;
+			cur = elt;
+		}
+		cur.right = this.head;
+		this.head.left = cur;
+		this.head = cur;
+	}
+
+	printAll(limit=0) {
+		if (!this.head) {
+			console.log(`head: ${this.head}, length: ${this.length}\n`);
+			return -1
+		}
+		let cur = this.head; 
+		limit *= this.length;
+		let c = 0;
+		while (cur.right != this.head || c < limit) {
+			console.log(`data: ${cur.data}, left: ${(cur.left == null) ? null : cur.left.data}, right: ${(cur.right == null) ? null : cur.right.data}`)
+			cur = cur.right;
+			c++;
+		}
+		console.log("===================================");
+		console.log(`head: ${this.head.data}, length: ${this.length}\n`);
+	}
+
+	kill() {
+		this.head = null;
+		this.length = 0;
+	}
+
+	// macros
+	size() { return this.length }
+	getHead() { return this.head }
+	data(node) { return node.data }
+	next(node) { return node.right }
+	prev(node) { return node.left }
+}
+
 
 function main() {
 	const tests = [
-		new element(11), new element(12), new element(13), new element(14),
-		new element(15), new element(16), new element(17), new element(18),
+		11, 12, 13, 14,
+		15, 16, 17, 18,
 	];
-	const listTest = new singleLinkedList(...tests);
+	const slist = new singleLinkedList(...tests);
 	const dlist = new doubleLinkedList(...tests);
-	dlist.printAll('l')
-	dlist.print('l')
+	const clist = new cycleLinkedList(...tests);
 
 }
 main();
