@@ -1,1 +1,1 @@
-collection of data structure classes
+collection of data structure 
