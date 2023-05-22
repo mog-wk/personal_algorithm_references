@@ -1,0 +1,8 @@
+
+https://www.geeksforgeeks.org/introduction-to-greedy-algorithm-data-structures-and-algorithm-tutorials/
+
+All greedy algorithms follow a basic structure: 
+
+1. Declare an empty result = 0.
+2. We make a greedy choice to select, If the choice is feasible add it to the final result.
+3. return the result.
