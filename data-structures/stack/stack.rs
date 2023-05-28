@@ -17,8 +17,14 @@ impl<T: Clone> Stack<T> {
         self.list.push(elt);
     }
 
-    fn extend() {
+    fn extend(&mut self, arr: &[T]) {
+        for elt in arr {
+            self.push(elt.clone())
+        }
+    }
 
+    fn size(&self) -> usize {
+        self.len
     }
 
     fn peek(&self) -> Result<&T, &str> {
@@ -75,14 +81,8 @@ fn main() {
         Stack::new(&[]),
     ];
 
-    println!("data set: {:?}\n", tests);
-
     for mut t in tests {
         println!("init => {:?}", t);
-        t.push(123);
-        println!("{}", t.peek().unwrap());
-        t.pop();
-        println!("{}", t.peek().unwrap());
         println!("end => {:?}\n", t);
     }
 
