@@ -1,3 +1,9 @@
+
+class Node:
+    def __init__(self, data, ptr):
+        self.data = data;
+        self.ptr = ptr
+
 class SingleLinkedList():
     def __init__(self, node: Node):
         if not node or not isinstance(node, Node): 
@@ -11,8 +17,8 @@ class SingleLinkedList():
             size += 1
         self.size = size
 
-class Node:
-    def __init__(self, data, ptr):
-        self.data = data;
-        self.ptr = ptr
 
+if __name__ == "__main__":
+    tests = [
+
+            ]
