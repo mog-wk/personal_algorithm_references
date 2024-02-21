@@ -1,6 +1,5 @@
 use std::fmt::Display;
 
-
 enum List {
     // tuple for node in list ( data, pointer )
     Cons(u32, Box<List>),
@@ -26,17 +25,13 @@ impl Display for List {
             },
             List::NIL => write!(f, "NIL")
         }
-
     }
 }
-
 
 fn main() {
     let mut list = List::new();
     list = list.prepend(32);
-    list = list.prepend(32);
+    list = list.prepend(31);
     println!("{}", list);
 
 }
-
-

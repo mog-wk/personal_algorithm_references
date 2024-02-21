@@ -1,0 +1,7 @@
+assume all numbers have d digits
+use only when d is constant
+make sorting between digits stable
+sort by last significant digit to most dignificant digit;
+(i. e. u to d to c)
+
+not in-place

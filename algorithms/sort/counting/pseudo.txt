@@ -1,0 +1,6 @@
+in an array of definite range, create a new array of the givem range initialized with zeros( O(n) )
+interate the input array and incrament the corresponding index
+
+Theta (n + m) // n: number of elements; m: largest amount of counted elements 
+
+use for small n and uniform distribution

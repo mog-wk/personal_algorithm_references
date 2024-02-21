@@ -2,12 +2,13 @@ import random
 import os
 import time
 
-
 def is_prime(n: int, a=None, trys=1) -> bool:
     ''' 
     miller-rabin
+    CoNP
     returns false if n is composite number(definetly not a prime),
-    returns true if n is inconclusive(almost certenly is a prime{get ratio})''' # TODO <<---
+    returns true if n is inconclusive(almost certenly is a prime{get ratio})
+    ''' 
 
     # n must be an even unsigned integer >= 3
     if n in set([2, 3, 5, 7, 11, 13, 17, 23, 29, 31, 37, 41, 43, 47, 51, 53, 57, 61, 67, 71]): return True

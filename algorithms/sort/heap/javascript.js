@@ -1,6 +1,7 @@
 "use strict";
 const { performance } = require('perf_hooks');
 
+// linear for reference
 function sort(arr) {
 	for (let i = 0; i < arr.length-1; i++)
 		if (arr[i] > arr[i+1])

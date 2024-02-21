@@ -1,7 +1,7 @@
 "use strict";
 const { performance } = require('perf_hooks');
 
-function sort(arr) {
+function insertion_sort(arr) {
 	for (let i = 1; i < arr.length-1; i++) {
 		let j = i + 1;
 		while (j > 0 && arr[j] > arr[j-1]) {
@@ -18,7 +18,7 @@ function swap(arr, a, b) {
 	arr[b] = tmp
 }
 
-(function () {
+function main() {
 	const tests = new Map([
 		[[12, 41, 5, 2, 3], [2, 3, 5, 12, 41]],
 		[[1, 1, 0], [0, 1, 1]],
@@ -33,9 +33,10 @@ function swap(arr, a, b) {
 	for (let [k, v] of tests.entries()) {
 		//let strTime = performance.now();
 		console.time("t")
-		console.log(`input: ${k}\noutput: ${sort(k)}\nresult: ${v}`);
+		console.log(`input: ${k}\noutput: ${insertion_sort(k)}\nresult: ${v}`);
 		//console.log(performance.now() - strTime);
 		console.timeEnd("t")
 		console.log("\n=========================\n")
 	}
-})()
+}
+main();

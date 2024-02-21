@@ -1,7 +1,6 @@
 import numpy as np
 import random
 
-
 def miller_rabin(n, a=None, verbose=False):
     '''miller rabin returns true if probabbly prime returns false if certanly compose'''
     if n in set([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 49]): return 1
@@ -12,7 +11,7 @@ def miller_rabin(n, a=None, verbose=False):
     q = n - 1
     k = 0
     while q % 2 == 0:
-        q>>= 1
+        q /= 2
         k += 1
 
     assert(n - 1 == 2**k * q)

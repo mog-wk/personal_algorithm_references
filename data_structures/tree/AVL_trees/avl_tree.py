@@ -1,5 +1,3 @@
-
-
 class Node:
     def __init__(self, data):
         self.balance_factor = 0

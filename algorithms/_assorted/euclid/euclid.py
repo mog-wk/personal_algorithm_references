@@ -7,6 +7,17 @@ def euclid(m: int, n: int) -> int:
         (m, n) = (n, m % n)
     return abs(n)
 
+def interactive_euclid(m: int, n: int) -> int:
+    while (n > 0 and m > 0):
+        if n > m:
+            n = n % m
+        else:
+            m = m % n
+
+    if n == 0:
+        return m
+    return n
+
 
 if __name__ == "__main__":
     tests = [

@@ -1,10 +1,10 @@
-
-
 fn main() {
     println!("counting");
     let mut arr: [u8; 12] = [4, 2, 1, 3, 5, 5, 8, 1, 1, 5, 2, 1];
     println!("{:?}", arr);
     counting_sort(&mut arr, 8);
+    println!("{:?}", arr);
+    counting_sort_II(&mut arr, 8);
     println!("{:?}", arr);
 }
 

@@ -1,0 +1,8 @@
+improves counting sort
+no maximun range
+find range with linear time O(n)
+assume a normal distribution
+
+1. divide the range in equal range buckets
+2. put elements with respective range in a linked list
+3. sort each list and concat lists

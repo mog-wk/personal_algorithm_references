@@ -38,10 +38,15 @@ def merge_sort(arr, l, h):
     merge_sort(arr, m+1, h)
     merge(arr, l, m, h)
 
+def test(l1):
+    print(l1)
+    merge_sort(l1, 0, len(l1)-1)
+    print(l1)
 
 l1 = [7, 3, 5, 1, 9, 0]
 
 l2 = [2, 4, 6, 8]
-l3 = [1, 3, 5, 7]
-t2 = merge_sort(l1, 0, len(l1)-1)
-print(l1)
+l3 = [1, 3, 5, 7, 11, 8, 9, 9]
+test(l1);
+test(l2);
+test(l3);
