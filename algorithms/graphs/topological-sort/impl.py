@@ -3,7 +3,6 @@ def topological_sort(graph, start_node):
     sorted_list = []
     visited = set()
 
-
     for i in graph.keys():
         stack = [i]
         if i in visited or len(graph[i]) == 0:
@@ -25,21 +24,11 @@ def topological_sort(graph, start_node):
 
     return sorted_list
 
-def topological_sort_II(graph):
-    visited = set()
-    stack = []
-    for i in graph.keys():
-        if i not in visited:
-            topological_sort_II_util(graph, i, visited, stack)
-    return stack[::-1];
-
-def topological_sort_II_util(graph, index, visited, stack):
-    visited.add(index)
-    print(visited)
-    for i in graph[index]:
-        if i not in visited:
-            topological_sort_II_util(graph, index, visited, stack)
-    stack.append(index)
+def shortest_path_in_dag(graph, start_node):
+    order = topological_sort(graph, start_node)
+    for node in order:
+        # djikstra
+        pass
 
 if __name__ == "__main__":
     tests = [
@@ -50,6 +39,4 @@ if __name__ == "__main__":
         ];
 
     for t in tests:
-        #print(topological_sort(t, "5"))
-        print(topological_sort_II(t))
-
+        print(topological_sort(t, "5"))

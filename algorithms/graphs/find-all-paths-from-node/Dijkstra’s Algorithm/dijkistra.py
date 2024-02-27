@@ -1,3 +1,4 @@
+# gready
 
 class Graph:
     def __init__(self, nodes: dict):
