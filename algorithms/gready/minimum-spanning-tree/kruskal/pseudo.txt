@@ -1,0 +1,4 @@
+1. sort edges O(e log n)
+2. go throught sorted edges and add to tree if it doesn`t make a cycle
+2.1. for each edge if ! Find(x) = Find(y) then union(Find(x), Find(y))
+2.2. do path compressing (e lg n ammotized)
